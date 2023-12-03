@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { BASE_URL } from "../util/constants";
 import { Product } from "../interfaces/Product";
 
 export const fetchProducts = async (): Promise<Product[]> => {
-  return fetch(`${BASE_URL}/products`)
+  return fetch(`${process.env.NEXT_PUBLIC_VERCEL_ENV}/products`)
     .then((res) => res.json())
     .catch((e) => console.error(e));
 };

@@ -2,7 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Product } from "../interfaces/Product";
 
 export const fetchProductDetails = (id: string): Promise<Product> => {
-  return fetch(`${process.env.NEXT_PUBLIC_VERCEL_ENV}/api/products/${id}`)
+  return fetch(
+    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/${id}`
+  )
     .then((res) => res.json())
     .then((data) => data.res)
     .catch((e) => console.error(e));

@@ -3,7 +3,7 @@ import { Product } from "../interfaces/Product";
 
 export const fetchProductDetails = (id: string): Promise<Product> => {
   return fetch(
-    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/${id}`
+    `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/products/${id}`
   )
     .then((res) => res.json())
     .then((data) => data.res)
